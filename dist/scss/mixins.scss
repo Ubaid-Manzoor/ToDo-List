@@ -1,0 +1,200 @@
+@mixin clearFixFloat{
+	&:after,&:before{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+@mixin BorderBoxAll{
+	*,*:after,*:before{
+	-moz-box-sizing: border-box;
+	-ms-box-sizing : border-box;
+	-webkit-box-sizing: border-box;
+	 box-sizing: border-box;
+	}
+}
+@mixin MakeGrid($cols,$col_gap,$row_gap){
+	display: grid;
+	grid-template-columns: repeat(#{$cols},1fr);
+	grid-column-gap: $col_gap;
+	grid-row-gap: $row_gap;
+}
+
+@mixin BorderRadius($radius){
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	 border-radius: $radius;
+}
+
+@mixin StyleForm{
+    fieldset{
+        border:1px solid #c8c8c8;
+        padding: 10px;
+        @include BorderRadius(10px);
+        font-family: 'Comfortaa', cursive;
+    }
+    input{
+        @include BorderRadius(0);
+        border:0;
+        outline: 0;
+        font-size: 20px;
+        border-bottom:1px solid #888;
+        width: 95%;
+        margin:5px 5px 10px 0;
+        height: 30px;
+        margin-bottom: 20px;
+        padding-left: 5px;
+        background: transparent;
+        &:focus{
+            border-bottom:2px solid #1117dc;
+        }
+    }
+    label{
+        font-family: 'Comfortaa', cursive;
+        font-family: 'Permanent Marker', cursive;
+        color: #000;
+    }
+    button{
+        @include BorderRadius(0);
+        display: block;
+        border: 0;
+        height: 35px;
+        margin:0 auto;
+        background: #10c1c1;
+        border:2px solid #859fc1;
+        @include BorderRadius(5px);
+        font-family: 'Comfortaa', cursive;
+        font-family: 'Permanent Marker', cursive;
+        cursor: pointer;
+        &:hover{
+            background: #888;
+            // border-color:;
+        }
+    }
+
+}
+@mixin animateFrom{
+    .animateFrom{
+        animation: FilpForm 400ms ease-out 200ms 1 forwards,
+                   shakeFrom 300ms ease-in-out 600ms 1 forwards,
+                   flyFrom 500ms ease-in-out 1000ms 1 forwards, ;
+        transform-origin: top left;
+        @keyframes FilpForm {
+            0%{
+               transform:rotate(0deg);
+            }
+            100%{
+                transform:rotate(90deg);
+            }
+        }
+        @keyframes shakeFrom {
+            0%{
+                transform: rotate(95deg);
+            }
+            50%{
+                transform: rotate(85deg);
+            }
+            100%{
+                transform: rotate(90deg);
+            }            
+        }
+        @keyframes flyFrom {
+            0%{
+                transform:translateY(0) rotate(90deg);
+            }
+            100%{
+                transform:translateY(400%) rotate(90deg);
+            }
+        }
+    }
+}
+@mixin StyleCancleButton{
+    .frame_button,.Left_frame{
+        position: absolute;
+        bottom:10px;
+        left: 20px;
+        width: 42px;
+        height : 42px;
+        background: transparent;
+        border: 1px solid #c7c2c2;
+        @include BorderRadius(50%);
+        transform: translateY(100px);
+        .cancle_button,.Left_button{
+            position: absolute;
+            top:5px;
+            left: 5px;
+            width: 30px;
+            height: 30px;
+            overflow: visible;
+            background: #fff;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2px;
+            background: #d9dbdc;
+            transform: rotateZ(45deg);
+            cursor: pointer;
+            @include BorderRadius(50%);
+            span{
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                background: #fff;
+            }
+         }
+         .Left_button{
+             background: #000;
+         }
+    }
+    .translate_Up{
+        animation: MoveUp 300ms ease-in-out 100ms 1 forwards;
+
+        @keyframes MoveUp {
+            0%{
+               transform: translateY(100px);
+            }
+            100%{
+               transform: translateY(0px);
+            }
+        }
+    }
+    .translate_Back{
+        animation: MoveDown 300ms ease-in-out 100ms 1 forwards;
+
+        @keyframes MoveDown {
+            0%{
+               transform: translateY(0px);
+            }
+            100%{
+               transform: translateY(100px);
+            }
+        }
+    }
+}
+@mixin StyleSaveButton{
+    .frame,.Right_frame{
+        position: absolute;
+        bottom:10px;
+        right: 20px;
+        width: 42px;
+        height : 42px;
+        background: transparent;
+        border: 1px solid #09c;
+        padding:11px;
+        cursor: pointer;
+        transform: translateY(100px);
+        @include BorderRadius(50%);
+        .save_button,.Right_button{
+                position: absolute;
+                margin: auto;
+                width: 20px;
+                height: 10px;
+                transform: rotate(45deg);
+                cursor: pointer;
+                border-bottom: 3px solid #09c;
+                border-left: 3px solid #09c;
+                background: #fff;
+                transform: rotate(-45deg);
+        }
+    }
+}

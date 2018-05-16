@@ -1,6 +1,6 @@
 import {DOM} from '../dist/DOMfetures.js';
 
-import {PM} from '../dist/ProjectManupulation.js'; 
+import {PM,Option_button} from '../dist/ProjectManupulation.js'; 
 
 
 const translateButtons = ()=>{
@@ -9,6 +9,11 @@ const translateButtons = ()=>{
     DOM.DeleteClass(DOM.GetElement(".frame_button"),"translate_Back");
     DOM.DeleteClass(DOM.GetElement(".frame"),"translate_Back");
 };
+
+const ClearScreen = ()=>{
+    let container = DOM.GetElement('.Grid_container');
+    container.innerHTML = "";
+}
 
 const AddButtonFuntionalities = ()=>{
     let cancle_button = DOM.GetElement(".frame_button");
@@ -32,17 +37,14 @@ const AddButtonFuntionalities = ()=>{
         DOM.AddClass(DOM.GetElement(".frame"),"translate_Back");
     };
 
+
     cancle_button.onclick = ()=>{
         RemoveAttribute();
         translateButtonsBack();
-    };
+};
  
     //save Button
 
-    const ClearScreen = ()=>{
-        let container = DOM.GetElement('.Grid_container');
-        container.innerHTML = "";
-    }
 
     save_button.onclick = ()=>{
         let NewProject = DOM.GetElement(".EditableDiv").textContent;
@@ -51,25 +53,28 @@ const AddButtonFuntionalities = ()=>{
         translateButtonsBack();
         ClearScreen();
         PM.DisplayAllProjects();
+        PlayOptionButton();
+        PlayDeleteButton();
+
     };
 
     
 
 
 };
-//Delete Button
+//Option button
 
     const translateButton = (project)=>{
         if(!project.querySelector(".Left_frame").classList.contains("translate_Up")){
             DOM.AddClass(project.querySelector(".Left_frame"),"translate_Up");
-            DOM.AddClass(project.querySelector(".Right_frame"),"translate_Up");
+            // DOM.AddClass(project.querySelector(".Right_frame"),"translate_Up");
             DOM.DeleteClass(project.querySelector(".Left_frame"),"translate_Back");
-            DOM.DeleteClass(project.querySelector(".Right_frame"),"translate_Back");
+            // DOM.DeleteClass(project.querySelector(".Right_frame"),"translate_Back");
         }else{
             DOM.DeleteClass(project.querySelector(".Left_frame"),"translate_Up");
-            DOM.DeleteClass(project.querySelector(".Right_frame"),"translate_Up");
+            // DOM.DeleteClass(project.querySelector(".Right_frame"),"translate_Up");
             DOM.AddClass(project.querySelector(".Left_frame"),"translate_Back");
-            DOM.AddClass(project.querySelector(".Right_frame"),"translate_Back");
+            // DOM.AddClass(project.querySelector(".Right_frame"),"translate_Back");
         }
     };
 
@@ -82,23 +87,43 @@ const AddButtonFuntionalities = ()=>{
     const AddFeaturestoOptionButton = (button)=>{
         let dataAtt = button.getAttribute("data-key");
         let CurrentProjects = DOM.GetElements(".Project_frame");
-        console.log(button);
         CurrentProjects.forEach(project =>{
             if(MatchDataKey(project,dataAtt)){
-                console.log(project);
                 translateButton(project);
             }
         });
         
     };
-    const OptionButton = (Option_button)=> {
-        console.log("asd");
-        console.log(Option_button);
+
+
+    const PlayOptionButton = ()=> {
+        let Option_button = DOM.GetElements(".delete_option");
         Option_button.forEach(button => {
             button.onclick = ()=>{
-                console.log(button);
                 AddFeaturestoOptionButton(button);
             }
         });
-    } 
-export {AddButtonFuntionalities,OptionButton,translateButtons};
+    }; 
+    const PlayDeleteButton = ()=>{
+        let delete_option = DOM.GetElements(".Left_frame");
+        delete_option.forEach((button)=>{
+            button.onclick = ()=>{
+                DeleteCurrnetProject(button);
+                PM.StoreArray();
+                ClearScreen();
+                PM.DisplayAllProjects();
+                PlayDeleteButton();
+                PlayOptionButton();  //Set three dot button Funtionalities again
+            };
+        });
+    };
+
+
+    const DeleteCurrnetProject = (button)=>{
+        let data_value = button.getAttribute("data-key");
+        let AllProjects = DOM.GetElements(".Project_frame");
+        PM.UpdateArray(data_value); //Delete and Update Array
+    };
+
+
+export {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetProject,PlayDeleteButton};

@@ -467,10 +467,10 @@ body {
       position: absolute;
       bottom: 10px;
       left: 20px;
-      width: 42px;
-      height: 42px;
+      width: 45px;
+      height: 45px;
       background: transparent;
-      border: 1px solid #c7c2c2;
+      border: 2px solid #dbbbbb;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       -webkit-border-radius: 50%;
@@ -485,11 +485,10 @@ body {
         width: 30px;
         height: 30px;
         overflow: visible;
-        background: #fff;
+        background: #5e5151;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2px;
-        background: #d9dbdc;
         -webkit-transform: rotateZ(45deg);
         -ms-transform: rotate(45deg);
         transform: rotateZ(45deg);
@@ -504,7 +503,14 @@ body {
           height: 14px;
           background: #fff; }
       .main_content .Grid_container .frame_button .Left_button, .main_content .Grid_container .Left_frame .Left_button {
-        background: #000; }
+        background: #d22525;
+        top: 8px;
+        left: 8px; }
+    .main_content .Grid_container .Left_frame {
+      border: 2px solid red;
+      left: calc(50% - 21px);
+      width: 50px;
+      height: 50px; }
     .main_content .Grid_container .translate_Up {
       -webkit-animation: MoveUp 300ms ease-in-out 100ms 1 forwards;
       animation: MoveUp 300ms ease-in-out 100ms 1 forwards; }
@@ -547,8 +553,8 @@ body {
       position: absolute;
       bottom: 10px;
       right: 20px;
-      width: 42px;
-      height: 42px;
+      width: 45px;
+      height: 45px;
       background: transparent;
       border: 1px solid #09c;
       padding: 11px;
@@ -563,6 +569,7 @@ body {
       .main_content .Grid_container .frame .save_button, .main_content .Grid_container .frame .Right_button, .main_content .Grid_container .Right_frame .save_button, .main_content .Grid_container .Right_frame .Right_button {
         position: absolute;
         margin: auto;
+        top: 13px;
         width: 20px;
         height: 10px;
         -webkit-transform: rotate(45deg);

@@ -5,8 +5,13 @@ let AllProjects = [];
 
 let DefaultProjects = ["Machine Learning","Web development"];
 
-let PM = {
+let Option_button;
 
+let Delete_option;
+ 
+let Edit_option;
+
+let PM = {
     DisplayUserName : ()=> {
         let username = PM.GetStoredData('UserName');
         let header = DOM.GetElement('.username');
@@ -67,7 +72,7 @@ let PM = {
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <div class = "Left_frame">
+                                    <div class = "Left_frame" data-key="${i}">
                                     <div class="Left_button">
                                         <span></span>
                                         <span></span>
@@ -75,10 +80,12 @@ let PM = {
                                         <span></span>
                                     </div>
                                     </div>
-                                    <div class = "Right_frame">
-                                        <div class="Right_button"></div>
-                                    </div>
                                 </div>`;
+        // Option_button = (DOM.GetElements(".delete_option"));
+        // Delete_option = (DOM.GetElements(".Left_frame"));
+        // Edit_option = (DOM.GetElements(".Right_frame"));
+        // console.log(Delete_option);
+        // console.log(Edit_option);
     },
 
     DisplayHelperBox : ()=>{
@@ -100,11 +107,14 @@ let PM = {
     },
 
     DisplayAllProjects : ()=>{
+        console.log("aa");
         AllProjects = JSON.parse(localStorage.getItem("AllProjects"));
         AllProjects.forEach((project,i)=>{
             PM.DisplayProject(project,i);
          });
         PM.DisplayHelperBox();
+        //temporary here
+
     },
 
 
@@ -113,6 +123,10 @@ let PM = {
             PM.StoreProject(project);
         });
         PM.DisplayAllProjects();
+    },
+    UpdateArray : (index)=>{
+        AllProjects.splice(index,1);
+        console.log(AllProjects);
     }
 };
 export {PM};

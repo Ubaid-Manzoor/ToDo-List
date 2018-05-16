@@ -114,24 +114,23 @@
         position: absolute;
         bottom:10px;
         left: 20px;
-        width: 42px;
-        height : 42px;
+        width: 45px;
+        height: 45px;
         background: transparent;
-        border: 1px solid #c7c2c2;
+        border: 2px solid rgb(219, 187, 187);
         @include BorderRadius(50%);
         transform: translateY(100px);
         .cancle_button,.Left_button{
             position: absolute;
-            top:5px;
+            top: 5px;
             left: 5px;
             width: 30px;
             height: 30px;
             overflow: visible;
-            background: #fff;
+            background: #5e5151;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 2px;
-            background: #d9dbdc;
             transform: rotateZ(45deg);
             cursor: pointer;
             @include BorderRadius(50%);
@@ -143,9 +142,17 @@
             }
          }
          .Left_button{
-             background: #000;
+            background: #d22525;
+            top: 8px;
+            left: 8px;
          }
     }
+    .Left_frame{
+        border: 2px solid red;
+        left:calc(50% - 21px);
+        width: 50px;
+        height: 50px;
+     }
     .translate_Up{
         animation: MoveUp 300ms ease-in-out 100ms 1 forwards;
 
@@ -176,8 +183,8 @@
         position: absolute;
         bottom:10px;
         right: 20px;
-        width: 42px;
-        height : 42px;
+        width: 45px;
+        height : 45px;
         background: transparent;
         border: 1px solid #09c;
         padding:11px;
@@ -187,6 +194,7 @@
         .save_button,.Right_button{
                 position: absolute;
                 margin: auto;
+                top: 13px;
                 width: 20px;
                 height: 10px;
                 transform: rotate(45deg);

@@ -4,11 +4,10 @@ import {ValidateFrom} from '../dist/FormValidation.js';
 
 import {PM} from '../dist/ProjectManupulation.js'; 
 
-import {AddButtonFuntionalities,OptionButton,translateButtons} from '../dist/ButtonFuntionalities.js';
+import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetProject,PlayDeleteButton} from '../dist/ButtonFuntionalities.js';
 
 (()=>{
 
-    let Delete_button;
 
     window.addEventListener('load',()=>{
        if(PM.UserExit()){
@@ -16,12 +15,11 @@ import {AddButtonFuntionalities,OptionButton,translateButtons} from '../dist/But
            PM.DisplayUserName();
            PM.DisplayAllProjects();
            DOM.GetElement("body").style.pointerEvents = "initial";
-           Delete_button = DOM.GetElements(".delete_option");
        }else{
            PM.SetDefaultProjects();
-           Delete_button = DOM.GetElements(".delete_option");
        }
-       AddDeleteFuntionality();
+       ThreeDotButtonFuntionality();
+       AddDeleteButtonFuntionality();
     });
     DOM.GetElement("button").onclick = ()=>{
         console.log("4");
@@ -35,6 +33,7 @@ import {AddButtonFuntionalities,OptionButton,translateButtons} from '../dist/But
         }
         DOM.AddClass(DOM.GetElement(".Details_Box"),"animateFrom");
         DOM.GetElement("body").style.pointerEvents = "initial";
+        // AddDeleteFuntionality();
     };
 
 // Time Manipulation
@@ -101,12 +100,13 @@ import {AddButtonFuntionalities,OptionButton,translateButtons} from '../dist/But
         SetRequiredAtt();
         translateButtons();
         AddButtonFuntionalities();
-        // DOM.GetElement('.plus_sign').setAttribute("id","default_box");
     };
 
-    const AddDeleteFuntionality = ()=>{
-        OptionButton(Delete_button);
+    const ThreeDotButtonFuntionality = ()=>{
+        PlayOptionButton();
     }
 
+    const AddDeleteButtonFuntionality =()=>{
+         PlayDeleteButton();
+    }
 })();
-

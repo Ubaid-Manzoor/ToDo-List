@@ -1,13 +1,17 @@
+import 'pubsub-js';
+
 import {DOM} from '../dist/DOMfetures.js';
 
 import {ValidateFrom} from '../dist/FormValidation.js';
 
 import {PM} from '../dist/ProjectManupulation.js'; 
 
-import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetProject,PlayDeleteButton} from '../dist/ButtonFuntionalities.js';
+import {AddButtonFuntionalities,PlayOptionButton,translateButtons,
+        DeleteCurrnetProject,PlayDeleteButton,DisplayListPage,
+        AddSaveItemButton,AddFuntionalityToItemButton,
+        AddFuntionalityToTaskDoneButton,AddFuntionToLIofAllProjectsInSetting} from '../dist/ButtonFuntionalities.js';
 
 (()=>{
-
 
     window.addEventListener('load',()=>{
        if(PM.UserExit()){
@@ -17,12 +21,26 @@ import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetP
            DOM.GetElement("body").style.pointerEvents = "initial";
        }else{
            PM.SetDefaultProjects();
+           DisplayForm();
        }
-       ThreeDotButtonFuntionality();
-       AddDeleteButtonFuntionality();
+       LetInitialChanges();
     });
+
+    const DisplayForm = ()=>{
+        let Form = DOM.GetElement(".Details_Box");
+        Form.style.display = "block"; 
+    };
+    const LetInitialChanges=()=>{
+        ThreeDotButtonFuntionality();
+        AddDeleteButtonFuntionality();
+        AddShowProjectListFuntionality();
+        AddSaveItemButton();
+        AddSaveItemButtonFuntionality();
+        PM.DisplayAllProjectsItems();
+        TaskDoneButton();
+        AddAsideShowProjectFuntionality();
+    };
     DOM.GetElement("button").onclick = ()=>{
-        console.log("4");
         let CurrentFrom = DOM.GetElement('.Details_form');
         let username = ValidateFrom(CurrentFrom);
         if(username == false){
@@ -39,7 +57,6 @@ import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetP
 // Time Manipulation
 
     (()=>{
-        console.log("5");
         let TimeDiv = DOM.GetElement('.date');
         let CurrentDate = DOM.GetDateObject();
         TimeDiv.innerHTML = `<h1>${CurrentDate.GetDate()}</h1>`;
@@ -48,7 +65,6 @@ import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetP
 // Setting Manipulation
 
     const DisplaySubListItems = (element,i)=>{
-        console.log("6");
         let CurrentSub_list = DOM.GetElements(".sub_list")[`${i}`];
         if(!CurrentSub_list.classList.contains(`animateSublist${i}`)){
             DOM.AddClass(CurrentSub_list,`animateSublist${i}`);
@@ -63,14 +79,12 @@ import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetP
 
 
     DOM.GetElements(".down_arrow").forEach((element,i)=> {
-        console.log("7");
         element.onclick = ()=>{
             DisplaySubListItems(element,i);
         }
     });
 
     const DisplayListItems = ()=>{
-        console.log("8");
         let body = DOM.GetElement('body');
         if(!body.classList.contains("ShowSetting")){
             DOM.AddClass(body,"ShowSetting");
@@ -108,5 +122,23 @@ import {AddButtonFuntionalities,PlayOptionButton,translateButtons,DeleteCurrnetP
 
     const AddDeleteButtonFuntionality =()=>{
          PlayDeleteButton();
+    }
+
+//Show Lists
+
+    const AddShowProjectListFuntionality = ()=>{
+        DisplayListPage();
+    };
+
+    const AddSaveItemButtonFuntionality = ()=>{
+        AddFuntionalityToItemButton();
+    };
+
+    const TaskDoneButton = ()=>{
+      AddFuntionalityToTaskDoneButton();  
+    };
+
+    const AddAsideShowProjectFuntionality = ()=>{
+        AddFuntionToLIofAllProjectsInSetting();
     }
 })();

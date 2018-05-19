@@ -70,7 +70,6 @@ body{
     grid-template-columns: 360px 56px 1fr;;
     aside{
         height: 100vh;
-        border-right: 1px solid #ccc;
         overflow: auto;
         header{
             font-size: 40px;
@@ -83,6 +82,7 @@ body{
             display: grid;
             grid-template-columns: 1fr;
             font-size: 20px;
+            background: #f5f1f1;
             p{
                 display: inline-block;
                 vertical-align: -webkit-baseline-middle;
@@ -91,13 +91,20 @@ body{
             li{
                 position: relative;
                 height: 60px;
-                border-bottom:1px solid #ccc;
+                border-bottom:1px solid #fff;
                 padding:15px 0 15px 15px;
                 z-index: 1;
             }
             .sub_list{
                transform: translateX(-100%);
                height: 0;
+               background: #e4e1e1;
+               li{
+                cursor: pointer;
+                &:hover{
+                    background: #d0d0d0;
+                }
+               }
             }
             .animateSublist00,.animateSublist10,.animateSublist20{
                 animation: push 500ms ease-in-out 0ms 1 forwards,Correct_height 0ms ease-in-out 500ms 1 forwards;
@@ -162,7 +169,7 @@ body{
 .vertical_column{
         width: 56px;
         height: 100%;
-        background: #cf9292;
+        background:#fbf6f6;
         .user_img{
             width: 56px;
             height: 56px; 
@@ -238,25 +245,36 @@ body{
             padding: 30px;
             margin-left:70px;
             overflow:auto;
+            .Project_frame{
+                box-shadow: 1px 1px 4px #34a293, -1px -1px 5px #34a293;
+                h1{
+                    font-size: 18px;
+                    padding: 10px;
+                    color: #137688;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                p{
+                    font-size: 20px;
+                    padding: 57px;
+                    color: #5135a0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    &:hover{
+                        color: #09c !important;
+                    }
+                }
+            }
             &>div{
                 position: relative;
                 width: 200px;
                 height: 200px;
                 overflow: hidden;
+                box-shadow: 1px 1px 5px #000104;
                 border:1px solid #ccc;
                 &:hover .delete_option{
                     opacity: 1;
                 }
                 cursor: pointer;
             }
-            // .default_box_plus{
-            //     position: absolute;
-            //     width: 40px;
-            //     height: 40px;
-            //     background: #fff;
-            //     top: calc(50% - 20px);
-            //     left: calc(50% - 20px);
-            // }
             .delete_option{
                 opacity: 0;
                 position: absolute;
@@ -278,6 +296,9 @@ body{
                     &:nth-child(3){
                         top:12px;
                     }
+                }
+                &:hover span{
+                    background: rgb(126, 158, 51);
                 }
             }
             .EditableDiv{

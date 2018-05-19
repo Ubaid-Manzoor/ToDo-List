@@ -92,7 +92,7 @@ let PM = {
         let tasks = project["Tasks"].length;
         container.innerHTML += `<div class="Project_frame" data-key="${i}">
                                     <h1>${project_name}</h1>
-                                    <small class="showList" data-key="${i}">${tasks}items</small>    
+                                    <p class="showList" data-key="${i}">${tasks}  items</p>    
                                     <div class="delete_option" data-key="${i}">
                                         <span></span>
                                         <span></span>

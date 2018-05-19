@@ -164,6 +164,7 @@ body {
     transform: translate(-360px); } }
 
 .Details_Box {
+  display: none;
   pointer-events: all;
   position: absolute;
   top: 50%;
@@ -582,6 +583,165 @@ body {
         -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
         transform: rotate(-45deg); }
+    .main_content .Grid_container .ListPage {
+      position: absolute;
+      top: 0;
+      left: 416px;
+      width: 100vw;
+      height: 100vh;
+      background: #d22525;
+      cursor: initial;
+      z-index: 100;
+      -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      transform: translateY(-100%); }
+      .main_content .Grid_container .ListPage form {
+        overflow: hidden;
+        position: absolute;
+        top: 40px;
+        left: 123px;
+        width: 50;
+        width: 80%; }
+        .main_content .Grid_container .ListPage form .saveList {
+          width: 30px;
+          height: 30px;
+          right: 0;
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+          position: absolute;
+          background: #8a5050;
+          top: calc(50% - 15px);
+          border-radius: 50%;
+          padding: 9px;
+          cursor: pointer;
+          -webkit-transform: translate(100%) rotate(90deg);
+          -ms-transform: translate(100%) rotate(90deg);
+          transform: translate(100%) rotate(90deg);
+          -webkit-animation: ShiftLeft 400ms ease-in 100ms 1 forwards;
+          animation: ShiftLeft 400ms ease-in 100ms 1 forwards; }
+          .main_content .Grid_container .ListPage form .saveList div {
+            margin: auto;
+            width: 16px;
+            height: 8px;
+            border-bottom: 3px solid #fff;
+            border-left: 3px solid #fff; }
+        .main_content .Grid_container .ListPage form .ShiftLeft {
+          -webkit-animation: ShiftandRotateToLeft 200ms ease-in 100ms 1 forwards;
+          animation: ShiftandRotateToLeft 200ms ease-in 100ms 1 forwards; }
+
+@-webkit-keyframes ShiftandRotateToLeft {
+  0% {
+    -webkit-transform: translateX(100%) rotate(90deg);
+    transform: translateX(100%) rotate(90deg); }
+  100% {
+    -webkit-transform: translateX(calc(0% - 5px)) rotate(-45deg);
+    transform: translateX(calc(0% - 5px)) rotate(-45deg); } }
+
+@keyframes ShiftandRotateToLeft {
+  0% {
+    -webkit-transform: translateX(100%) rotate(90deg);
+    transform: translateX(100%) rotate(90deg); }
+  100% {
+    -webkit-transform: translateX(calc(0% - 5px)) rotate(-45deg);
+    transform: translateX(calc(0% - 5px)) rotate(-45deg); } }
+        .main_content .Grid_container .ListPage form input {
+          width: 100%;
+          height: 40px;
+          font-size: 30px; }
+      .main_content .Grid_container .ListPage .ListHeading {
+        overflow: auto;
+        height: calc(100vh - 102px);
+        width: calc(100vw - 56px);
+        background: #211818; }
+        .main_content .Grid_container .ListPage .ListHeading h1 {
+          color: red;
+          padding: 10px;
+          background: darkred; }
+        .main_content .Grid_container .ListPage .ListHeading ul li {
+          position: relative;
+          color: #902727;
+          text-align: left;
+          padding: 15px;
+          padding-left: 5px;
+          background: #fff;
+          border-bottom: 1px solid #aaaa; }
+          .main_content .Grid_container .ListPage .ListHeading ul li .TaskDone {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 5px;
+            background: #8a5050;
+            top: calc(50% - 15px);
+            border-radius: 50%;
+            padding: 9px;
+            cursor: pointer; }
+            .main_content .Grid_container .ListPage .ListHeading ul li .TaskDone div {
+              margin: auto;
+              width: 16px;
+              height: 8px;
+              border-bottom: 3px solid #fff;
+              border-left: 3px solid #fff;
+              -webkit-transform: rotate(-45deg);
+              -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+      .main_content .Grid_container .ListPage .up_arrow {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        border-top: 1px solid;
+        border-left: 1px solid;
+        -webkit-transform: translateY;
+        -ms-transform: translateY;
+        transform: translateY;
+        -webkit-transform: rotateZ(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotateZ(45deg); }
+    .main_content .Grid_container .Translate_Page_Down {
+      -webkit-animation: moveDown 300ms ease-in 100ms 1 forwards;
+      animation: moveDown 300ms ease-in 100ms 1 forwards; }
+
+@-webkit-keyframes moveDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); } }
+
+@keyframes moveDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); }
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); } }
+    .main_content .Grid_container .Translate_Page_Up {
+      -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      transform: translateY(0%);
+      -webkit-animation: moveUp 300ms ease-in 100ms 1 forwards;
+      animation: moveUp 300ms ease-in 100ms 1 forwards; }
+
+@-webkit-keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
+  100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); } }
+
+@keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
+  100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); } }
+    .main_content .Grid_container .helperBox {
+      margin-bottom: 100px; }
   .main_content .Projects_input_page {
     position: absolute;
     z-index: 100000;

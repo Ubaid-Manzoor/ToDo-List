@@ -1,6 +1,7 @@
 const ValidateEachInput = (input)=>{
     if(input.value == ""){
-        alert("fill User Name");
+        console.log(input.value);
+        alert("fill it Corectly");
         return false;
     }else{
         return input.value;

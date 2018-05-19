@@ -38,6 +38,7 @@ body{
     }
 }
 .Details_Box{
+    display: none;
     pointer-events: all;
     position: absolute;
     top:50%;
@@ -293,6 +294,35 @@ body{
             }
             @include StyleCancleButton;
             @include StyleSaveButton;
+            .ListPage{
+                @include ListPage;
+            }
+            .Translate_Page_Down{
+                animation: moveDown 300ms ease-in 100ms 1 forwards;
+                @keyframes moveDown {
+                    0%{
+                        transform: translateY(-100%);
+                    }
+                    100%{
+                        transform: translateY(0%);
+                    }
+                }
+            }
+            .Translate_Page_Up{
+                transform:  translateY(0%);
+                animation: moveUp 300ms ease-in 100ms 1 forwards;
+                @keyframes moveUp {
+                    0%{
+                        transform: translateY(0%);
+                    }
+                    100%{
+                        transform: translateY(-100%);
+                    }
+                }
+            }
+            .helperBox{
+                margin-bottom: 100px
+            }
         }
         .Projects_input_page{
             position: absolute;
